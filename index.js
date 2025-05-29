@@ -38,7 +38,7 @@ function startBot(message) {
     });
 }
 
-axios.get("https://github.com/XL-JUBAYER-XxX/XxX/blob/main/package.json")
+axios.get("https://raw.githubusercontent.com/XL-JUBAYER-XxX/XxX/main/package.json")
   .then((res) => {
     logger("Version: " + res.data.version, "[ VERSION ]");
     logger(res.data.description, "[ DESCRIPTION ]");
