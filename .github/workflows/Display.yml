@@ -1,0 +1,27 @@
+name: Messenger Bot Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Remove old lock and install dependencies
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+          npm install
+
+      - name: Start the bot
+        run: node index.js
